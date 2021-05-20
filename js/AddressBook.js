@@ -44,3 +44,29 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 });
+
+/**UC6 */
+
+const save = () => {
+    try{
+      let contact = saveData();
+      createAndUpdateStorage(contact);
+    }catch(e){
+      return;
+    }
+ };
+
+ function saveData(){
+    let contact = new Contact();
+    contact._fullName = getInputValueById('#fullName');
+    contact._address = getInputValueById('#address');
+    contact._phoneNumber = getInputValueById('#tel');
+    contact._city = getInputValueById('#city');
+    contact._state = getInputValueById('#state');
+    contact._zip = getInputValueById('#zip');
+ }
+
+ const getInputValueById = (id) => {
+    let value = document.querySelector(id).value;
+    return value;
+}
