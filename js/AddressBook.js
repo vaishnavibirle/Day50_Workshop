@@ -89,3 +89,18 @@ const saveData = () =>{
     let value = document.querySelector(id).value;
     return value;
 }
+
+/**UC9 Resetting the form by using RESET Button */
+const resetForm = () => {
+    setValue('#fullName','');
+    setValue('#address','');
+    setValue('#tel','');
+    setValue('#city','');
+    setValue('#state','');
+    setValue('#zip','');
+}
+
+const setValue = (id , value) => {
+    const element = document.querySelector(id);
+    element.value = value;
+}
