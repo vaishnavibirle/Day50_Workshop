@@ -47,24 +47,43 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 /**UC6 */
 
-const save = () => {
+const save = (event) => {
     try{
+        alert("object created");
       let contact = saveData();
+      //alert("saved");
       createAndUpdateStorage(contact);
     }catch(e){
       return;
     }
  };
 
- function saveData(){
-    let contact = new Contact();
+ /**Adding to local storage and update */
+ function createAndUpdateStorage(addContactData) {
+
+    let contactDataList = JSON.parse(localStorage.getItem("ContactDataList"));
+
+    if(contactDataList != undefined) {
+        contactDataList.push(addContactData);
+    } else {
+        contactDataList = [addContactData];
+    }
+    alert(contactDataList.toString());
+    localStorage.setItem("ContactDataList", JSON.stringify(contactDataList));
+}
+
+const saveData = () =>{
+    let contact = new AddressBookContact();
     contact._fullName = getInputValueById('#fullName');
     contact._address = getInputValueById('#address');
     contact._phoneNumber = getInputValueById('#tel');
     contact._city = getInputValueById('#city');
     contact._state = getInputValueById('#state');
     contact._zip = getInputValueById('#zip');
- }
+    // createAndUpdateStorage(employee);
+    // alert("Thank you. your data is saved " + contact.toString());
+    return contact;
+}
 
  const getInputValueById = (id) => {
     let value = document.querySelector(id).value;
