@@ -5,6 +5,9 @@
         <meta name="viewport" content="width=device-width , initial-scale=1.0">
         <title>Address Book Page</title>
         <link rel="stylesheet" href="../css/HomePage.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <script src = "../js/HomePage.js"></script>
+
     </head>
     <body>
         <!--UC1 Creating header content with logo-->
@@ -22,11 +25,17 @@
         <div class="main-content">
             <div class="header-content">
                 <div class="person-details-text">
-                    Person Details
+                    Person Details <div class="person-count">5</div>
                 </div>
                 <a href="../pages/HomePage.html" class="add-button">
                     <img src="../assets/icons/add-24px.svg" alt = "">Add Person</a>
             </div>
+        
+
+        <!--UC3 Creating table for viewing address book details in tabular format-->
+        <div class = "table-main">
+            <table id = "table-display" class = "table"></table>
+        </div>
         </div>
     </body>
 </html>
