@@ -27,7 +27,7 @@ class Contact {
 
     get tel() {return this._tel;}
     set tel(tel) {
-        let telPattern = RegExp('((^\\+?)(([0-9]{2,3})(\\s))?)' + '[0-9]{10}$');
+        let telPattern = RegExp('^(\+\d{1,3}[- ]?)?\d{10}$/');
         if (telPattern.test(tel)) {
             this._tel = tel;
         }
